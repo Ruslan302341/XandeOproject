@@ -29,17 +29,21 @@ class ViewController: UIViewController {
             return
         }
         stste [sender.tag - 1] = player
+       
         count += 1
+        
         if player == 1 {
             sender.setBackgroundImage(UIImage(named: "x"), for: .normal)
             player = 2
         } else {
             sender.setBackgroundImage(UIImage(named: "o"), for: .normal)
+        
             player = 1
         }
         
         for winArray in winState {
             if stste[winArray[0]] == stste [winArray[1]] && stste[winArray[1]] == stste[winArray[2]] {
+            
                 if stste[winArray[0]] == 1 {
                     print("x win")
                     
@@ -72,6 +76,7 @@ class ViewController: UIViewController {
         
         for i in 0...8 {
             stste[i] = 0
+            
             let button = view.viewWithTag(i + 1) as! UIButton
             button.setBackgroundImage(nil, for: .normal)
         }
